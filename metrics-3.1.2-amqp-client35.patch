@@ -1,0 +1,18 @@
+diff -Nru metrics-3.1.2/metrics-graphite/src/main/java/com/codahale/metrics/graphite/GraphiteRabbitMQ.java metrics-3.1.2.amqp-client/metrics-graphite/src/main/java/com/codahale/metrics/graphite/GraphiteRabbitMQ.java
+--- metrics-3.1.2/metrics-graphite/src/main/java/com/codahale/metrics/graphite/GraphiteRabbitMQ.java	2015-04-26 05:55:19.000000000 +0200
++++ metrics-3.1.2.amqp-client/metrics-graphite/src/main/java/com/codahale/metrics/graphite/GraphiteRabbitMQ.java	2015-06-08 16:23:26.168774589 +0200
+@@ -114,9 +114,11 @@
+         if (isConnected()) {
+             throw new IllegalStateException("Already connected");
+         }
+-
+-        connection = connectionFactory.newConnection();
+-        channel = connection.createChannel();
++        try {
++            connection = connectionFactory.newConnection();
++            channel = connection.createChannel();
++        } catch (java.util.concurrent.TimeoutException t) {
++        }
+     }
+ 
+     @Override
