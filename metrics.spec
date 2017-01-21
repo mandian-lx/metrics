@@ -3,6 +3,7 @@ Version:       3.1.2
 Release:       1
 Summary:       Java library which gives you what your code does in production
 License:       ASL 2.0
+Group:         Development/Java
 URL:           http://metrics.dropwizard.io
 Source0:       https://github.com/dropwizard/metrics/archive/v%{version}/%{name}-%{version}.tar.gz
 # Add rabbitmq-java-client 3.5.x support
@@ -55,7 +56,7 @@ BuildRequires: mvn(org.slf4j:slf4j-simple)
 
 # Docs deps
 BuildRequires: python-sphinx
-BuildRequires: /usr/bin/pdflatex
+BuildRequires: texlive
 
 BuildArch:     noarch
 
