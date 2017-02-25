@@ -152,7 +152,7 @@ sed -i "s|jersey.repackaged.||" \
 %pom_add_dep com.google.guava:guava metrics-jersey2
 
 # org.assertj:assertj-core:1.6.1 *
-%pom_remove_dep -r org.assertj:assertj-core
+%pom_remove_dep org.assertj:assertj-core
 
 %if 0
 %mvn_package ":%{name}-jetty8" %{name}-jetty
